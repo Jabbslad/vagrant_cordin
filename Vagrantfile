@@ -9,6 +9,8 @@ Vagrant.configure("2") do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "precise32"
   config.vm.provision :shell, :path => "bootstrap.sh"
+  # config.vm.provision :shell, :path => "erlang.sh"
+  config.vm.provision :shell, :path => "clojure.sh"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -26,7 +28,7 @@ Vagrant.configure("2") do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-  config.vm.network :public_network
+  config.vm.network :public_network, :bridge => 'en0: Wi-Fi (AirPort)'
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
